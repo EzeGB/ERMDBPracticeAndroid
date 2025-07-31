@@ -19,6 +19,6 @@ interface SchoolDao {
     suspend fun insertDirector(director: Director)
 
     @Transaction
-    @Query("SELECT * FROM school JOIN director ON school.schoolId = director.schoolId WHERE schoolName = :schoolName")
+    @Query("SELECT * FROM school WHERE schoolName = :schoolName")
     suspend fun getSchoolAndDirectorWithSchoolName(schoolName: String) : List<SchoolAndDirector>
 }
